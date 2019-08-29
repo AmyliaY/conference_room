@@ -12,6 +12,7 @@ public class Room {
     private String def1;
     private String def2;
     private String def3;
+    private String addr;
 
     public int getId() {
         return id;
@@ -99,5 +100,13 @@ public class Room {
 
     public void setDef3(String def3) {
         this.def3 = def3;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setaddr(String addr) {
+        this.addr = addr;
     }
 }
