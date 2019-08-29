@@ -1,9 +1,7 @@
 package main.com.em.dao;
 
-import main.com.em.domain.PagingVO;
-import main.com.em.domain.Reservation;
-import main.com.em.domain.ReservationCustom;
-import main.com.em.domain.ReservationVo;
+import main.com.em.domain.*;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,11 +9,16 @@ import java.util.List;
  * Created by Admiral on 2018/1/19.
  */
 public interface ReservationMapper {
+
+    public List<Room> findRoomsByTime(@Param("date")String date, @Param("begintime")String begintime, @Param("endtime")String endtime);
+
     public Integer reservationCount();
 
     public List<ReservationVo> findByPaging(PagingVO pagingVO);
 
     public List<Reservation> findByName(String name);
+
+    public Reservation findById(Integer id);
 
     public Integer reservationPassCount();
 
@@ -27,11 +30,11 @@ public interface ReservationMapper {
 
     public List<ReservationVo> findAllByPaging(PagingVO pagingVO);
 
-    public void addReservation(ReservationCustom reservationCustom);
+    public void addReservation(Reservation reservation);
 
     public List<ReservationVo> queryByUser(String name);
 
-    public List<ReservationCustom> findByUser(String name);
+    public List<Reservation> findByUser(String user);
 
     public void cancelApplication(Integer id);
 }

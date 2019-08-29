@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 
+/*
     //登录跳转
     @RequestMapping(value = "/login", method = {RequestMethod.GET})
     public String loginUI() throws Exception {
@@ -39,5 +40,6 @@ public class LoginController {
 
         return "/login";
     }
+*/
 
 }

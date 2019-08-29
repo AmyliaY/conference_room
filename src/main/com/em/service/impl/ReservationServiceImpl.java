@@ -3,8 +3,8 @@ package main.com.em.service.impl;
 import main.com.em.dao.ReservationMapper;
 import main.com.em.domain.PagingVO;
 import main.com.em.domain.Reservation;
-import main.com.em.domain.ReservationCustom;
 import main.com.em.domain.ReservationVo;
+import main.com.em.domain.Room;
 import main.com.em.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +19,10 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
     private ReservationMapper reservationMapper;
+
+    public List<Room> findRoomsByTime(String date, String begintime, String endtime){
+        return reservationMapper.findRoomsByTime(date, begintime, endtime);
+    }
 
     @Override
     public Integer reservationCount() {
@@ -37,6 +41,10 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<Reservation> findByName(String name) {
         return reservationMapper.findByName(name);
+    }
+
+    public Reservation findById(Integer id) {
+        return reservationMapper.findById(id);
     }
 
     @Override
@@ -73,8 +81,8 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void addReservation(ReservationCustom reservationCustom) throws Exception {
-        reservationMapper.addReservation(reservationCustom);
+    public void addReservation(Reservation reservation) throws Exception {
+        reservationMapper.addReservation(reservation);
     }
 
     @Override
@@ -83,8 +91,8 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<ReservationCustom> findByUser(String name) throws Exception {
-        return reservationMapper.findByUser(name);
+    public List<Reservation> findByUser(String user) throws Exception {
+        return reservationMapper.findByUser(user);
     }
 
     @Override

@@ -21,9 +21,9 @@
         <property name="securityManager" ref="securityManager" />
 
         <!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->
-        <!--<property name="loginUrl" value="/admin/show"></property>-->
+        <property name="loginUrl" value="/admin/show"></property>
 
-        <property name="filterChainDefinitions">
+        <!--<property name="filterChainDefinitions">
             <value>
                 #这里相当于ini配置文件中的[urls]
                 #url=拦截器[参数]，拦截器
@@ -50,7 +50,7 @@
 
                 /** = authc
             </value>
-        </property>
+        </property>-->
     </bean>
 
 

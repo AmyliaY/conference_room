@@ -6,13 +6,12 @@ import java.util.Date;
  * Created by Admiral on 2018/1/18.
  */
 public class Reservation {
+
     private int id;
 
     private int roomId;
 
     private String user;
-
-    private String mobile;
 
     private Date date;
 
@@ -20,7 +19,16 @@ public class Reservation {
 
     private Date endTime;
 
-    private String mark;
+    /** 1预约，2使用中，3取消预约，4预约结束 */
+    private int status;
+
+    private Date createTime;
+
+    private String def1;
+
+    private String def2;
+
+    private String def3;
 
     public int getId() {
         return id;
@@ -44,14 +52,6 @@ public class Reservation {
 
     public void setUser(String user) {
         this.user = user;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
     }
 
     public Date getDate() {
@@ -78,11 +78,43 @@ public class Reservation {
         this.endTime = endTime;
     }
 
-    public String getMark() {
-        return mark;
+    public int getStatus() {
+        return status;
     }
 
-    public void setMark(String mark) {
-        this.mark = mark;
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getDef1() {
+        return def1;
+    }
+
+    public void setDef1(String def1) {
+        this.def1 = def1;
+    }
+
+    public String getDef2() {
+        return def2;
+    }
+
+    public void setDef2(String def2) {
+        this.def2 = def2;
+    }
+
+    public String getDef3() {
+        return def3;
+    }
+
+    public void setDef3(String def3) {
+        this.def3 = def3;
     }
 }

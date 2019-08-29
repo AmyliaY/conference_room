@@ -1,9 +1,8 @@
 package main.com.em.service;
 
-import main.com.em.domain.PagingVO;
 import main.com.em.domain.Reservation;
-import main.com.em.domain.ReservationCustom;
 import main.com.em.domain.ReservationVo;
+import main.com.em.domain.Room;
 
 import java.util.List;
 
@@ -11,6 +10,10 @@ import java.util.List;
  * Created by Admiral on 2018/1/19.
  */
 public interface ReservationService {
+
+
+    public List<Room> findRoomsByTime(String date, String begintime, String endtime);
+
     /**
      * 查询15天内待审核的预约总数
      * @return
@@ -67,7 +70,7 @@ public interface ReservationService {
      * 添加会议室预约
      * @param reservationCustom
      */
-    public void addReservation(ReservationCustom reservationCustom) throws Exception;
+    public void addReservation(Reservation reservation) throws Exception;
 
     /**
      * 根据借用人查询所有会议室预约信息
@@ -79,11 +82,19 @@ public interface ReservationService {
 
     /**
      * 查询指定借用人预约会议室信息
-     * @param name
+     * @param user
      * @return
      * @throws Exception
      */
-    public List<ReservationCustom> findByUser(String name) throws Exception;
+    public List<Reservation> findByUser(String user) throws Exception;
+
+    /**
+     * 根据Id查询预约详情
+     * @param
+     * @return
+     * @throws Exception
+     */
+    public Reservation findById(Integer id) throws Exception;
 
     /**
      * 根据id取消会议室申请
