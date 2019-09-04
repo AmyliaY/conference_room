@@ -170,9 +170,11 @@ public class OrdinaryController {
             reservationService.addReservation(reservation);
 
         } catch (Exception e){
-            return JSON.toJSONString(map.put("result", "fail"));
+            map.put("result", "fail");
+            return JSON.toJSONString(map);
         }
-        return JSON.toJSONString(map.put("result", "seccess"));
+        map.put("result", "seccess");
+        return JSON.toJSONString(map);
     }
 
     //我的预约记录列表
